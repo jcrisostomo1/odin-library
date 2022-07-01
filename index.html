@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/b0de81a436.js" crossorigin="anonymous"></script>
     <script src="myscript.js" defer></script>
     <title>Odin-Library</title>
 </head>
@@ -14,10 +14,20 @@
         <h1>Odin-Library</h1>
     </header>
     <main>
+        <button id="add-btn"><i class="fa-solid fa-plus fa-lg"></i>Add Book</button>
         <div class="card-container">
 
         </div>
-        <button>Add Book!</button>
+    <fieldset>
+        <legend>Enter your book!</legend>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title">
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author">
+            <label for="numPages">Number of Pages:</label>
+            <input type="number" id="numPages" name="numPages">
+            <button id="submit-btn" type="submit">Submit</button>
+    </fieldset>
     </main>
     <footer>
         <a href="https://github.com/jcrisostomo1" target="_blank"><i class="fa fa-github fa-lg"></i></a>
