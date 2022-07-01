@@ -1,6 +1,8 @@
 const cardContainer = document.querySelector(".card-container");
 const submitButton = document.getElementById("submit-btn");
 const title = document.querySelector("#title");
+const author = document.querySelector("#author");
+const numPages = document.querySelector("#numPages");
 
 console.log(submitButton);
 
@@ -25,6 +27,15 @@ let hungerGames = new Book("Hunger Games", "JC", 300 , true);
 let percyJackon = new Book("Percy Jackson", "Me", 900, false)
 addBookToLibrary(hungerGames, percyJackon);
 
+
+submitButton.addEventListener('click', () => {
+    console.log(title.value + author.value + numPages.value)
+    let newBook = new Book(title.value, author.value, numPages.value, true);
+    addBookToLibrary(newBook);
+    console.log(myLibrary)
+    
+});
+
 myLibrary.forEach(book =>{
     let card = document.createElement("div");
     card.className="card";
@@ -40,8 +51,4 @@ myLibrary.forEach(book =>{
     read.innerText = book.read;
     card.append(bookNumber, title, author, numPages, read);
     cardContainer.appendChild(card)
-});
-
-submitButton.addEventListener('click', () => {
-    console.log(title.value)
 });
