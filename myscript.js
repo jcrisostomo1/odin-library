@@ -40,14 +40,18 @@ let addCard = (book) => {
     let numPages = document.createElement("p");
     numPages.innerText = `Pages: ${book.numPages}`;
     let read = document.createElement("p");
-    read.innerText = book.read;
+    if (book.read) {
+        read.innerText = "Read";
+    } else {
+        read.innerText = "Not Read";
+    }
     card.append(bookNumber, title, author, numPages, read);
     cardContainer.appendChild(card);
 }
 
 let hungerGames = new Book("Hunger Games", "JC", 300 , true);
 let percyJackon = new Book("Percy Jackson", "Me", 900, false)
-addBookToLibrary(hungerGames, percyJackon);
+addBookToLibrary(hungerGames);
 loadExistingBooks();
 
 submitButton.addEventListener('click', () => {

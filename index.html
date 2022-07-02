@@ -15,21 +15,26 @@
     </header>
     <main>
         <button id="add-btn"><i class="fa-solid fa-plus fa-lg"></i>Add Book</button>
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <fieldset>
+                    <legend>Enter your book!</legend>
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title">
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name="author">
+                        <label for="numPages">Number of Pages:</label>
+                        <input type="number" id="numPages" name="numPages">
+                        <input type="checkbox" id="read" name="read" value="read">
+                        <label for="read">Read</label>
+                        <button id="submit-btn" type="submit">Submit</button>
+                </fieldset>
+            </div>
+        </div>
         <div class="card-container">
 
         </div>
-    <fieldset>
-        <legend>Enter your book!</legend>
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title">
-            <label for="author">Author:</label>
-            <input type="text" id="author" name="author">
-            <label for="numPages">Number of Pages:</label>
-            <input type="number" id="numPages" name="numPages">
-            <input type="checkbox" id="read" name="read" value="read">
-            <label for="sausage">Read?</label>
-            <button id="submit-btn" type="submit">Submit</button>
-    </fieldset>
     </main>
     <footer>
         <a href="https://github.com/jcrisostomo1" target="_blank"><i class="fa fa-github fa-lg"></i></a>

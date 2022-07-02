@@ -7,13 +7,15 @@ body {
     display:flex; 
     flex-direction:column; 
     height: 100vh;
+    width: calc(100vw - (100vw - 100%));
+    margin: 0;
+    padding: 0;
   }
 
 header {
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
@@ -25,7 +27,6 @@ main {
     align-items: center;
     gap: 15px;
     padding-top: 25px;
-
 }
 
 #add-btn {
@@ -43,11 +44,56 @@ button i {
     transition: 0.4s;
 }
 
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+}
+
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+
+.close-button:hover {
+    background-color: darkgray;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+}
+
 .card-container {
     display: grid;
-    grid-template-columns: 2fr 2fr;
-    padding: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-auto-rows: minmax(150px, 1fr);
+    margin-top: 20px;
     gap: 15px;
+    width: 85%;
 }
 
 .card {
