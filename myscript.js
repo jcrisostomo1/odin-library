@@ -1,9 +1,14 @@
 const cardContainer = document.querySelector(".card-container");
 const submitButton = document.getElementById("submit-btn");
+const addBookButton = document.getElementById("add-btn");
+const closeButton = document.querySelector(".close-button");
+const modal = document.querySelector(".modal");
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const numPages = document.querySelector("#numPages");
 const read = document.querySelector("#read");
+
+console.log(addBookButton)
 
 let myLibrary = [];
 
@@ -26,6 +31,16 @@ let loadExistingBooks = () => {
     myLibrary.map(book => {
         addCard(book);
     });
+}
+
+let toggleModal = () => {
+    modal.classList.toggle("show-modal");
+}
+
+let windowOnClick = (event) => {
+    if (event.target === modal) {
+        toggleModal();
+    }
 }
 
 let addCard = (book) => {
@@ -53,6 +68,10 @@ let hungerGames = new Book("Hunger Games", "JC", 300 , true);
 let percyJackon = new Book("Percy Jackson", "Me", 900, false)
 addBookToLibrary(hungerGames);
 loadExistingBooks();
+
+addBookButton.addEventListener('click', toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
 
 submitButton.addEventListener('click', () => {
     console.log(title.value + author.value + numPages.value)
