@@ -8,8 +8,6 @@ const author = document.querySelector("#author");
 const numPages = document.querySelector("#numPages");
 const read = document.querySelector("#read");
 
-console.log(addBookButton)
-
 let myLibrary = [];
 
 function Book(title, author, numPages, read) {
@@ -57,6 +55,23 @@ let deleteBook = (book) => {
     updateIndexes();
 }
 
+let displayReadStatus = (read, book) => {
+    if (book.read) {
+        read.innerText = "Read";
+    } else {
+        read.innerText = "Not Read";
+    }
+}
+
+let changeReadStatus = (read, book) => {
+    if (book.read) {
+        book.read = false
+    } else {
+        book.read = true;
+    }
+    displayReadStatus(read, book)
+}
+
 let addCard = (book) => {
     let card = document.createElement("div");
     card.className="card";
@@ -69,11 +84,10 @@ let addCard = (book) => {
     numPages.innerText = `Pages: ${book.numPages}`;
     let read = document.createElement("p");
     read.className="read";
-    if (book.read) {
-        read.innerText = "Read";
-    } else {
-        read.innerText = "Not Read";
-    }
+    read.addEventListener('click', () => {
+        changeReadStatus(read, book);
+    });
+    displayReadStatus(read, book);
     let deleteButton = document.createElement('button');
     deleteButton.className = "delete-btn";
     deleteButton.innerText = "Delete";
