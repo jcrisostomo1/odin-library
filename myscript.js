@@ -45,13 +45,15 @@ let windowOnClick = (event) => {
 
 let updateIndexes = () => {
     let remainingCards = document.querySelectorAll(".card");
-    console.log(remainingCards)
+    remainingCards.forEach((card, index) => {
+        card.setAttribute("data-index", index);
+    });
 }
 
 let deleteBook = (book) => {
     let selectedBook = document.querySelector(`[data-index="${myLibrary.indexOf(book)}"]`);
     selectedBook.remove();
-    //myLibrary = myLibrary.filter(item => item !== book);
+    myLibrary = myLibrary.filter(item => item !== book);
     updateIndexes();
 }
 
@@ -83,8 +85,9 @@ let addCard = (book) => {
 }
 
 let hungerGames = new Book("Hunger Games", "JC", 300 , true);
-let percyJackon = new Book("Percy Jackson", "Me", 900, false)
-addBookToLibrary(hungerGames, percyJackon);
+let percyJackon = new Book("Percy Jackson", "Me", 900, false);
+let percyJackon2 = new Book("Percy Jackson", "Me", 900, false);
+addBookToLibrary(hungerGames, percyJackon, percyJackon2);
 loadExistingBooks();
 
 addBookButton.addEventListener('click', toggleModal);
