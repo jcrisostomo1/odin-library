@@ -117,6 +117,7 @@ fieldset {
 .card .read:hover {
     background-color: lightgreen;
 }
+
 .card .read:active {
     transform: translateY(3px);;
 }
@@ -126,6 +127,7 @@ fieldset {
     border-radius: 25px;
     border: none;
     width: 100%;
+    background-color: white;
 }
 
 .delete-btn:hover {
