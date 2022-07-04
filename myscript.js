@@ -98,10 +98,6 @@ let addCard = (book) => {
     cardContainer.appendChild(card);
 }
 
-let hungerGames = new Book("Hunger Games", "JC", 300 , true);
-let percyJackon = new Book("Percy Jackson", "Me", 900, false);
-let percyJackon2 = new Book("Percy Jackson", "Me", 900, false);
-addBookToLibrary(hungerGames, percyJackon, percyJackon2);
 loadExistingBooks();
 
 addBookButton.addEventListener('click', toggleModal);
