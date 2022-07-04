@@ -43,11 +43,22 @@ let windowOnClick = (event) => {
     }
 }
 
+let updateIndexes = () => {
+    let remainingCards = document.querySelectorAll(".card");
+    console.log(remainingCards)
+}
+
+let deleteBook = (book) => {
+    let selectedBook = document.querySelector(`[data-index="${myLibrary.indexOf(book)}"]`);
+    selectedBook.remove();
+    //myLibrary = myLibrary.filter(item => item !== book);
+    updateIndexes();
+}
+
 let addCard = (book) => {
     let card = document.createElement("div");
     card.className="card";
-    let bookNumber = document.createElement("h3");
-    bookNumber.innerText = `Book: ${myLibrary.indexOf(book)+1}`
+    card.setAttribute("data-index", myLibrary.indexOf(book))
     let title = document.createElement("p");
     title.innerText = `${book.title}`;
     let author = document.createElement("p");
@@ -55,18 +66,25 @@ let addCard = (book) => {
     let numPages = document.createElement("p");
     numPages.innerText = `Pages: ${book.numPages}`;
     let read = document.createElement("p");
+    read.className="read";
     if (book.read) {
         read.innerText = "Read";
     } else {
         read.innerText = "Not Read";
     }
-    card.append(bookNumber, title, author, numPages, read);
+    let deleteButton = document.createElement('button');
+    deleteButton.className = "delete-btn";
+    deleteButton.innerText = "Delete";
+    deleteButton.addEventListener('click', () => {
+        deleteBook(book);
+    });
+    card.append(title, author, numPages, read, deleteButton);
     cardContainer.appendChild(card);
 }
 
 let hungerGames = new Book("Hunger Games", "JC", 300 , true);
 let percyJackon = new Book("Percy Jackson", "Me", 900, false)
-addBookToLibrary(hungerGames);
+addBookToLibrary(hungerGames, percyJackon);
 loadExistingBooks();
 
 addBookButton.addEventListener('click', toggleModal);
@@ -78,4 +96,6 @@ submitButton.addEventListener('click', () => {
     let newBook = new Book(title.value, author.value, numPages.value, read.checked);
     addBookToLibrary(newBook);
     addCard(newBook);
+    toggleModal();
 });
+

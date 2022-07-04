@@ -110,9 +110,32 @@ fieldset {
 
 .card {
     text-align: center;
-    padding: 15px;
+    padding: 8px;
     border-radius: 25px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card .read:hover {
+    background-color: lightgreen;
+}
+.card .read:active {
+    transform: translateY(3px);;
+}
+
+.delete-btn {
+    font-size: 16px ;
+    border-radius: 25px;
+    border: none;
+    width: 100%;
+}
+
+.delete-btn:hover {
+    color: white;
+    background-color: #DC143C;
+}
+
+.delete-btn:active {
+    transform: translateY(3px);;
 }
 
 footer {
